@@ -1,0 +1,66 @@
+<!-- main -->
+<div class="container m-5">
+  <div class="row ">
+    <!-- side -->
+    <div class="col-lg-3 col-sm-12 mt-3">
+      <div class="row justify-content-center align-items-center g-2">
+        <div class="row dark rounded">
+          <!-- img -->
+          <div class="col-3 p-2">
+            <img [src]="user.image" class="img-fluid rounded-circle bg-warning p-1 sideimg" alt="">
+          </div>
+          <!-- name -->
+          <div class="col-9 mt-4">
+            <h3>{{user.name}}</h3>
+          </div>
+        </div>
+        <!-- option -->
+        <div class="col-12  m-1 lowdark rounded">
+          <a href="" class="alink p-1 m-3" routerLink="/main/allOrders">My Orders</a><br>
+          <a href="" class="alink p-1 m-3" routerLink="/main/wishlist">My Wishlist</a><br>
+          <a href="" class="alink p-1 m-3" routerLink="/main/cart">My Cart</a><br>
+          <hr>
+          <a href="" class="alog p-1 m-3" (click)="logout()">Log Out</a>
+        </div>
+      </div>
+    </div>
+    <!-- main contant -->
+    <div class="col-lg-9 col-sm-12 border shadow">
+      <div class="row ">
+        <div class="container">
+          <div class="col-6 d-flex justify-content-start mt-3 ms-3">
+            <h2>Messages User</h2>
+          </div>
+          <div class="row mt-2">
+            <div *ngFor="let message of massages"
+              class="message m-2 col-md-11 p-1 rounded shadow-lg justify-content-center">
+              <div class="message-header">
+                <div class="row m-1">
+                  <div class="col-auto">
+                    <img
+                      src="https://www.pngfind.com/pngs/m/366-3668466_avatar-people-no-background-png-people-icon-03.png"
+                      alt="" class="me-2">
+                    Admin
+                  </div>
+                  <div class="col text-end">
+                    <h4 class="mt-1"><i class="fa-solid fa-comment"></i> {{message.created_at|date:'short'}}</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="message-body m-3">{{message.userMessage}}</div>
+              <div class="message-actions">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+
+
+  </div>
+</div>

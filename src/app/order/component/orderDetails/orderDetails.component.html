@@ -1,0 +1,78 @@
+<div class="container rounded">
+    <div class="order rounded">
+      <article class="card">
+        <header class="card-header">My Orders / Tracking</header>
+        <div class="card-body rounded">
+          <h6>Order ID: {{order.id}}</h6>
+          <article class="card rounded">
+            <div class="card-body row">
+              <div class="col">
+                <strong>Estimated Delivery time:</strong>
+                <br />
+                <p>{{ twoDaysAfter | date:'MMM d, y'}}</p>
+              </div>
+              <div class="col">
+                <strong>mobile:</strong> <br />
+                <p>BLUEDART, | <i class="fa fa-phone"></i> {{order.mobile}}</p>
+              </div>
+              <div class="col">
+                <strong>Status:</strong> <br />
+                <p *ngIf="order.payment_status=='1'">confirmed</p>
+                <p *ngIf="order.payment_status=='2'">in progress</p>
+                <p *ngIf="order.payment_status=='3'">out of deliverd</p>
+                <p *ngIf="order.payment_status=='4'">deliverd</p>
+              </div>
+              <div class="col">
+                <strong>Tracking #:</strong> <br />
+                <p>BD045903594059</p>
+              </div>
+            </div>
+          </article>
+          <div class="track">
+            <div class="step " [class.active]="order.payment_status >= '1' ">
+              <span class="st icon"> <i class="fa fa-check"></i> </span>
+              <span class="te text">Order confirmed</span>
+            </div>
+            <div class="step active" [class.active]="order.payment_status >='2'" >
+              <span class="st icon"> <i class="fa fa-user"></i> </span>
+              <span class="te text"> Picked in progress</span>
+            </div>
+            <div class="step"  [class.active]="order.payment_status >='3'">
+              <span class="st icon"> <i class="fa fa-truck"></i> </span>
+              <span class="te text"> On Delivery </span>
+            </div>
+            <div class="step"  [class.active]="order.payment_status >='4'">
+              <span class="st icon"> <i class="fa fa-box"></i> </span>
+              <span class="te text">Product Delivered</span>
+            </div>
+          </div>
+          <hr />
+          <ul class="row">
+            <!-- *ngFor="let image of order.product" -->
+            <li class="col-md-4" *ngFor="let order of order.order_products">
+              <figure class="itemside mb-3" >
+                <div class="aside">
+                  <img
+                  width="100"
+                    src="{{order.product.images[0].imgPath}}"
+                  />
+                </div>
+                <figcaption class="info align-self-center">
+                  <p class="t title">
+                    {{order.product.name}} <br />
+                    <span class="space">{{ order.product.description.slice(0,30) }}{{ order.product.description.length > 30 ? '...' : '' }}</span>
+                  </p>
+                  <span class="text-muted"> {{order.product.price |currency:'EUR' }}   </span>
+                </figcaption>
+              </figure>
+            </li>
+  
+          </ul>
+          <hr />
+          <button class="btn rounded" data-abc="true" [routerLink]="['/main/allOrders']" style="background-color: rgb(255, 129, 0); color: #fff;">
+            <i class="fa fa-chevron-left"></i> Back to order</button
+          >
+        </div>
+      </article>
+    </div>
+  </div>

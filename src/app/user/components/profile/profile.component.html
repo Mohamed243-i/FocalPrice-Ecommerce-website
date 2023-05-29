@@ -1,0 +1,75 @@
+<!-- main -->
+<div class="container m-5">
+  <div class="row ">
+<!-- side -->
+    <div class="col-lg-3 col-sm-12 mt-3">
+      <div class="row justify-content-center align-items-center g-2">
+        <div class="row dark rounded">
+            <!-- img -->
+            <div class="col-3 p-2">
+              <img [src]="user.image" class="img-fluid rounded-circle bg-warning p-1 sideimg" alt="">
+            </div>
+            <!-- name -->
+            <div class="col-9 mt-4">
+              <h3>{{user.name}}</h3>
+            </div>
+          </div>
+          <!-- option -->
+          <div class="col-12  m-1 lowdark rounded">
+            <a href="" class="alink p-1 m-3" routerLink="/main/allOrders">My Orders</a><br>
+            <a href="" class="alink p-1 m-3" routerLink="/main/wishlist">My Wishlist</a><br>
+            <a href="" class="alink p-1 m-3" routerLink="/main/cart">My Cart</a><br>
+            <!-- <a href="" class="alink p-1 m-3" routerLink="/main/user/massages">Massages</a> -->
+            <a routerLink="/main/user/massages" class="d-flex userProfile-Link alink p-1 m-3" (click)="seenFunction()">
+              <div class="ms-2 order-lg-last">
+                <div class="header-user-links float-end">
+                  <a class="header-cart " *ngIf="massages.length!=0">
+                    <span class="number mb-2 bg-danger p-2 d-flex align-items-center">{{massages.length}}</span>
+                  </a>
+                </div>
+              </div>
+              Massages
+            </a>
+            <hr>
+            <a href="" class="alog p-1 m-3" (click)="logout()">Log Out</a>
+          </div>
+        </div>
+    </div>
+<!-- main contant -->
+    <div class="col-lg-9 col-sm-12 border shadow">
+      <div class="row ">
+          <!-- main title  -->
+          <h1 class="m-3">Your Profile</h1>
+          <!-- itemds -->
+          <div class="border-top border-bottom border-end col-8">
+            <div class="row">
+              <h3 class="col-4 m-3 mr-0 var"> Name</h3>
+              <h3 class="col-lg-5 col-sm-12 m-3  m-3 value">{{user.name}}</h3>
+            </div>
+            <div class="row">
+              <h3 class="col-4 m-3 mr-0 var">Email</h3>
+              <h3 class="col-lg-5 col-sm-12 m-3 value">{{user.email}}</h3>
+
+            </div>
+            <div class="row">
+              <h3 class="col-4 m-3 mr-0 var">Gender</h3>
+              <h3 class="col-lg-5 col-sm-12 m-3  m-3 value">{{user.gender}}</h3>
+            </div>
+        </div>
+        <!-- img -->
+        <div class="col-4 d-flex justify-content-center align-items-center flex-column border-bottom border-top  ">
+          <h2 class="m-3">Profile Image</h2>
+          <img [src]="user.image" class=" img-fluid m-3 mt-0 szfix" alt="">
+        </div>
+        <!-- button -->
+        <div class=" d-flex justify-content-end">
+          <button class=" m-3 btn orange" routerLink="/main/user/editProfile">Edit Profile</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+

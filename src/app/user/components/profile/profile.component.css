@@ -1,0 +1,60 @@
+.sideimg{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+ .orange{
+    background-color: rgb(255, 128, 0);
+    direction: none;
+ }
+ .dark {
+  background-color: rgba(255, 128, 0, 0.6) !important;
+}
+.lowdark {
+  background-color: rgba(255, 128, 0, 0.4) !important;
+}
+.alink{
+  color:rgb(14, 100, 134,0.7) ;
+  
+}
+.alink:hover{
+  color:rgb(14, 100, 134) ;
+  
+
+}
+.alog{
+  color: rgb(14, 100, 134,0.5);
+}
+.alog:hover{
+  color: rgb(14, 100, 134,0.8);
+}
+.var{
+  color: rgba(128, 128, 128, 0.6);
+}
+.value{
+  color:#055555; ;
+}
+.szfix {
+  width: 30vh;
+  height: 30vh;
+}
+
+/* message noitification */
+.header-user-links a .number {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  line-height: 20px;
+  margin-top: 10px;
+  position: relative;
+  top: -10px;
+  right: 5px;
+  background-color: rgb(255, 129, 0);
+  color: #fff;
+
+}
